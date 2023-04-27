@@ -1,0 +1,14 @@
+on: 
+  schedule:
+    - cron: '*/2 * * * *'
+    
+job: 
+  jira:
+    name: Jira tickets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with: { node-version: "16.x" }
+      - name: Execute Jira tickets creation.
+        run: npm install
