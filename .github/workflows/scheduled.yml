@@ -2,7 +2,7 @@ on:
   schedule:
     - cron: '*/2 * * * *'
     
-job: 
+jobs: 
   jira:
     name: Jira tickets
     runs-on: ubuntu-latest
