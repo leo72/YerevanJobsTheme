@@ -1,4 +1,4 @@
-name: "E2E Tests Main workflow"
+name: "Workflow to call"
 on:
   # Note: Inputs must be kept in sync between workflow_call and workflow_run.
   workflow_call:
