@@ -1,0 +1,26 @@
+name: E2E Test Suite
+
+on:
+  # Manual runs.
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        description: "Target Environment"
+        required: true
+        default: "test"
+        type: choice
+        options:
+          - test
+          - stage
+          - performance
+          - cps-preview
+          - training
+          - uat
+          - breakfix
+          - trn2
+jobs:
+  trigger:
+    name: E2E Tests
+    uses: ./.github/workflows/tocall.yml
+    with:
+      target_environment: ${{ github.event.inputs.target_environment }}
