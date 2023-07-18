@@ -1,4 +1,4 @@
-name: E2E Test Suite
+name: Dispatch
 
 on:
   # Manual runs.
