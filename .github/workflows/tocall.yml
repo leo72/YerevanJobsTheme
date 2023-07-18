@@ -1,0 +1,17 @@
+name: "E2E Tests Main workflow"
+on:
+  # Note: Inputs must be kept in sync between workflow_call and workflow_run.
+  workflow_call:
+    inputs:
+      target_environment:
+        description: "Target Environment"
+        default: "test"
+        type: string
+jobs:
+  ping:
+    name: Health Check ** ${{ inputs.target_environment }} **
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Ping"
+        run: ping www.ggole.com -c 5
