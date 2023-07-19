@@ -32,10 +32,10 @@ jobs:
         continue-on-error: true
       - name: "Confirm e2e folder"
         id: confirm
-        if: steps.ls.status == 'success'
+        if: steps.ls.outcome == 'success'
         run: cd e2e && ls
       - name: "Check confirm"
-        if: steps.ls.status == 'skipped'
+        if: steps.ls.outcome == 'skipped'
         run: cd e2e && ls
         
 
