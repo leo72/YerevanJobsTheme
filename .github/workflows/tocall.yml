@@ -23,10 +23,15 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with: { node-version: "18.x" }
-      - name: Create a folder
+      - name: "Create a folder"
+        id: create
         run: mkdir e2e
-      - name: "Install Node Modules"
-        uses: bahmutov/npm-install@v1
-        with:
-          working-directory: e2e  
+      - name: "List folders"
+        id: ls
+        run: ls
+        continue-on-error: true
+      - name: "Confirm e2e folder"
+        if: steps.ls.status == 'failure'; 
+        run: cd e2e && ls
+        
 
