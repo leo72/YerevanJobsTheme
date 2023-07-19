@@ -31,7 +31,7 @@ jobs:
         run: ls
         continue-on-error: true
       - name: "Confirm e2e folder"
-        if: steps.ls.status == 'failure'; 
+        if: steps.ls.status == 'failure'
         run: cd e2e && ls
         
 
