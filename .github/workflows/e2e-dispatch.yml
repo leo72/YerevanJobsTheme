@@ -22,5 +22,6 @@ jobs:
   trigger:
     name: E2E Tests
     uses: ./.github/workflows/tocall.yml
+    if: ${{ github.event.inputs.target_environment == 'test' }}
     with:
       target_environment: ${{ github.event.inputs.target_environment }}
