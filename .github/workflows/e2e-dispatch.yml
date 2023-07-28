@@ -31,4 +31,4 @@ jobs:
     if: ${{ github.event.inputs.target_environment != 'test' }}
     with:
       target_environment: ${{ github.event.inputs.target_environment }}
-      random_input: 'hello"
+      random_input: 'hello'
