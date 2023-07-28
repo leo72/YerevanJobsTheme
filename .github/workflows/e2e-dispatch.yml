@@ -20,8 +20,15 @@ on:
           - trn2
 jobs:
   trigger:
-    name: E2E Tests
+    name: E2E Tests (multiple)
     uses: ./.github/workflows/tocall.yml
     if: ${{ github.event.inputs.target_environment == 'test' }}
     with:
       target_environment: ${{ github.event.inputs.target_environment }}
+  trigger_one:
+    name: E2E Tests (single)
+    uses: ./.github/workflows/tocall.yml
+    if: ${{ github.event.inputs.target_environment != 'test' }}
+    with:
+      target_environment: ${{ github.event.inputs.target_environment }}
+      random_input: 'hello"
