@@ -7,7 +7,6 @@
 #   * Unstable - tests that are advisory (for upcoming features) and should not block release.
 #   * Ignored - tests that are not run at all in CI.
 #   * Morning - tests that run to check features are working correctly.
-
 # This name shouldn't matter, as it isn't displayed. We add "ZZ" to make it float to the bottom
 # of the workflows list in case it somehow gets triggered directly.
 name: "ZZ: E2E Tests"
