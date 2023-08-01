@@ -25,10 +25,4 @@ jobs:
     if: ${{ github.event.inputs.target_environment == 'test' }}
     with:
       target_environment: ${{ github.event.inputs.target_environment }}
-  trigger_one:
-    name: E2E Tests (single)
-    uses: ./.github/workflows/tocall.yml
-    if: ${{ github.event.inputs.target_environment != 'test' }}
-    with:
-      target_environment: ${{ github.event.inputs.target_environment }}
-      random_input: 'hello'
+      random_input: ${{ github.event.inputs.target_environment == 'test' && 'Target is test' || github.event.inputs.target_environment != 'test' && 'Target is NOT test'}}
