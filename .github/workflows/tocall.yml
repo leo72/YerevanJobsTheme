@@ -1,4 +1,16 @@
-name: "Workflow to call"
+#
+# This workflow actually runs E2E tests: Cypress and Jest.
+#
+# It is a "reusable" workflow, meaning it can only be triggered as part of another workflow.
+# It runs tests in parallel, and tests are split into four categories:
+#   * Stable - tests that must pass before release.
+#   * Unstable - tests that are advisory (for upcoming features) and should not block release.
+#   * Ignored - tests that are not run at all in CI.
+#   * Morning - tests that run to check features are working correctly.
+
+# This name shouldn't matter, as it isn't displayed. We add "ZZ" to make it float to the bottom
+# of the workflows list in case it somehow gets triggered directly.
+name: "ZZ: E2E Tests"
 on:
   # Note: Inputs must be kept in sync between workflow_call and workflow_run.
   workflow_call:
