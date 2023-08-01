@@ -25,4 +25,4 @@ jobs:
     if: ${{ github.event.inputs.target_environment == 'test' }}
     with:
       target_environment: ${{ github.event.inputs.target_environment }}
-      random_input: ${{ github.event.inputs.target_environment == 'test' && 'Target is test' || github.event.inputs.target_environment != 'test' && 'Target is NOT test'}}
+      random_input: ${{ github.event.inputs.target_environment != 'test' && 'Target is NOT test' || github.event.inputs.target_environment == 'test' && 'Target is test' }}
