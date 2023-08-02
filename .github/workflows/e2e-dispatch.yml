@@ -24,4 +24,4 @@ jobs:
     uses: ./.github/workflows/tocall.yml
     with:
       target_environment: ${{ github.event.inputs.target_environment }}
-      random_input: ${{ github.event.inputs.target_environment == 'test' && 'Target is test' || 'Target is NOT test'  }}
+      random_input: ${{ github.event.inputs.target_environment == 'test' && 'Target is test' || contains(github.event.inputs.target_environment, 'a') && 'Target contains a' || 'Target doesn''t contain a'  }}
